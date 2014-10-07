@@ -49,6 +49,7 @@ void Magic::positionUpdated(const QGeoPositionInfo & pos)
             saved = true;
             QString gps = lat + "," + lon;
             setGpsInfo(gps);
+            setSummary("GPS data : " + gps);
 
             // Initialize QGeoSearchManager
             QGeoSearchManager* searchManager;
@@ -84,6 +85,7 @@ void Magic::readReverseGeocode()
     else {
         QGeoAddress address = places[0].address();
         setCity(address.city());
+        setSummary("Your city : " + address.city());
     }
     disconnect(reply, SIGNAL(finished()), this,SLOT(readReverseGeocode()));
     reply->deleteLater();
@@ -97,6 +99,8 @@ void Magic::onGpsReady() {
     QString apiKey = "204c63addffcde9f9cf6b72936f788bb";
     QString units = "?units=si"; // replace by "" if you want imperial + you'll have to change some hard coded 'Celsius' strings
     QString url = "https://api.forecast.io/forecast/" + apiKey + "/" + getGpsInfo() + units;
+
+    setSummary("URL : " + url);
 
     QNetworkRequest request(url);
 
