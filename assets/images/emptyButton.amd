@@ -1,0 +1,4 @@
+#RimCascadesAssetMetaData version=1.0
+sliceMargins: 50 50 50 50
+source: "emptyButton.png"
+# I set the margins to half the size of the image, so only the center of the image is scaled
