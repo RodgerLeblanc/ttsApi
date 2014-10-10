@@ -22,60 +22,63 @@ Page {
             topPadding: ui.du(3)
             leftPadding: topPadding
             rightPadding: topPadding
-            Label {
-                // Localized text with the dynamic translation and locale updates support
-                text: qsTr("Text to speak") + Retranslate.onLocaleOrLanguageChanged
-                textStyle.base: SystemDefaults.TextStyles.BigText
-            }
-            TextField {
-                id: message
-                hintText: "Enter your text to speak"
-                text: "Hello world!"
-            }
-            Label {
-                // Localized text with the dynamic translation and locale updates support
-                text: qsTr("Language") + Retranslate.onLocaleOrLanguageChanged
-                textStyle.base: SystemDefaults.TextStyles.BigText
-            }
-            TextField {
-                id: language
-                hintText: "Enter the 2 letters language of the message"
-                text: "en"
-            }
-            Label {
-                // Localized text with the dynamic translation and locale updates support
-                text: qsTr("Gender") + Retranslate.onLocaleOrLanguageChanged
-                textStyle.base: SystemDefaults.TextStyles.BigText
-            }
-            DropDown {
-                id: gender
-                Option {
-                    text: "Male"
-                    value: "ml"
-                    selected: true
-                }
-                Option {
-                    text: "Female"
-                    value: "fm"
-                }
-            }
             Container {
-                layout: StackLayout {
-                    orientation: LayoutOrientation.LeftToRight
+//                visible: false
+                Label {
+                    // Localized text with the dynamic translation and locale updates support
+                    text: qsTr("Text to speak") + Retranslate.onLocaleOrLanguageChanged
+                    textStyle.base: SystemDefaults.TextStyles.BigText
                 }
-                horizontalAlignment: HorizontalAlignment.Center
-                topPadding: ui.du(3)
-                CustomButton {
-                    text: "TTS this with Google!"
-                    onClicked: {
-                        _ttsApi.google_tts(message.text, language.text.toLowerCase())
+                TextField {
+                    id: message
+                    hintText: "Enter your text to speak"
+                    text: "Hello world!"
+                }
+                Label {
+                    // Localized text with the dynamic translation and locale updates support
+                    text: qsTr("Language") + Retranslate.onLocaleOrLanguageChanged
+                    textStyle.base: SystemDefaults.TextStyles.BigText
+                }
+                TextField {
+                    id: language
+                    hintText: "Enter the 2 letters language of the message"
+                    text: "en"
+                }
+                Label {
+                    // Localized text with the dynamic translation and locale updates support
+                    text: qsTr("Gender") + Retranslate.onLocaleOrLanguageChanged
+                    textStyle.base: SystemDefaults.TextStyles.BigText
+                }
+                DropDown {
+                    id: gender
+                    Option {
+                        text: "Male"
+                        value: "ml"
+                        selected: true
+                    }
+                    Option {
+                        text: "Female"
+                        value: "fm"
                     }
                 }
-                CustomButton {
-                    leftPadding: ui.du(3)
-                    text: "TTS this with Vozme!"
-                    onClicked: {
-                        _ttsApi.vozme_tts(message.text, gender.selectedOption.value, language.text.toLowerCase())
+                Container {
+                    layout: StackLayout {
+                        orientation: LayoutOrientation.LeftToRight
+                    }
+                    horizontalAlignment: HorizontalAlignment.Center
+                    topPadding: ui.du(3)
+                    CustomButton {
+                        text: "TTS this with Google!"
+                        onClicked: {
+                            _ttsApi.google_tts(message.text, language.text.toLowerCase())
+                        }
+                    }
+                    CustomButton {
+                        leftPadding: ui.du(3)
+                        text: "TTS this with Vozme!"
+                        onClicked: {
+                            _ttsApi.vozme_tts(message.text, gender.selectedOption.value, language.text.toLowerCase())
+                        }
                     }
                 }
             }

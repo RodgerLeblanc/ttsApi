@@ -4,17 +4,17 @@
 <context>
     <name>main</name>
     <message>
-        <location filename="../assets/main.qml" line="27"/>
+        <location filename="../assets/main.qml" line="29"/>
         <source>Text to speak</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="37"/>
+        <location filename="../assets/main.qml" line="39"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="47"/>
+        <location filename="../assets/main.qml" line="49"/>
         <source>Gender</source>
         <translation type="unfinished"></translation>
     </message>
